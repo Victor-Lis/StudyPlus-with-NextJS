@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { FiUser, FiLogOut, FiLoader, FiLock } from "react-icons/fi";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 export default function Header() {
   const { status, data } = useSession();
@@ -15,13 +16,20 @@ export default function Header() {
     await signOut();
   }
 
+  useEffect(() => {
+    console.log(`${status} === ${"unauthenticated"}? ${status === "unauthenticated"} && ${data} === ${null}? ${data === null}`)
+    if(status === "unauthenticated" && data === null){
+      handleLogout()
+    }
+  }, [status])
+
   return (
-    <header className="w-full flex items-center px-2 py-4 bg-zinc-900 h-20 shadow-sm">
-      <div className="w-full flex items-center justify-between max-w-7x1 mx-auto">
+    <header className="w-full flex items-center px-2 py-4 bg-zinc-900 h-20 shadow-sm-[--tw-shadow-color: #fff;] border-b-white border-b-[1px]">
+      <div className="w-full flex items-center justify-between max-w-7x1 mx-auto text-white">
         <Link href={"/"}>
-          <h1 className="font-bold text-2x1 hover:tracking-widest duration-300 text-white">
+          <h1 className="font-bold text-2x1 hover:tracking-widest duration-300">
             Study
-            <span className="text-blue-500">Plus</span>
+            <span className="text-blue-600">Plus</span>
           </h1>
         </Link>
 
@@ -39,7 +47,7 @@ export default function Header() {
 
         {status === "authenticated" && (
           <div className="flex gap-x-4 items-baseline">
-            <Link href={"/dashboard"}>
+            <Link href={"/"}>
               <FiUser size={24} color="#4b5563" />
             </Link>
 
