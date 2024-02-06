@@ -15,7 +15,8 @@
     "next-auth": "^4.24.5",
     "prisma": "^5.9.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-icons": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
