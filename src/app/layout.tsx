@@ -9,8 +9,8 @@ import { AuthProvider } from "@/providers/auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "StudyPlus - Organizando sua vida!",
-  description: "Gerencie suas tarefas de forma fácil.",
+  title: "ETEC Enfermagem",
+  description: "Feito para o gerenciamento de estágios na ETEC Professor Carmine Biagio Tundisi.",
 };
 
 export default function RootLayout({
@@ -22,8 +22,8 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={inter.className}>
         <AuthProvider>
-           <Header />
-           {children}
+            <Header />
+            {children}
         </AuthProvider>
       </body>
     </html>
