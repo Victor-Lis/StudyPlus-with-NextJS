@@ -39,7 +39,7 @@ export default function Header() {
 
         {status === "authenticated" && (
           <div className="flex gap-x-4 items-baseline">
-            <Link href={"/tarefas"}>
+            <Link href={"/semana"}>
               <FiUser size={24} color="#fff" />
             </Link>
 
