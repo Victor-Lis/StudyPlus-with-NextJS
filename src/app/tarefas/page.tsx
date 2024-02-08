@@ -1,22 +1,25 @@
 "use client";
 
-import prisma from "@/lib/prisma";
 import { TarefaType } from "@/@types/tarefa";
 import { getTasks } from "./utils/get";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import GridTarefas from "./components/GridTarefas";
 import Tarefa from './components/Tarefa'
+import { verifyAuth } from "../utils/verifyAuth";
 
 export default function Tarefas() {
   const [tarefas, setTarefas] = useState<TarefaType[]>([]);
 
   async function handleGetTasks() {
-    let data = await getTasks();
-    setTarefas(data);
+      let data = await getTasks();
+      if(data){
+        setTarefas(data);
+      }
   }
 
   useEffect(() => {
+    verifyAuth()
     handleGetTasks();
   }, []);
 
