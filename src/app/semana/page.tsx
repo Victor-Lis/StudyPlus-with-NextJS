@@ -8,6 +8,7 @@ import Day from "./components/Day";
 import { verifyAuth } from "../utils/verifyAuth";
 import { api } from "@/lib/api";
 import { WeekType } from "@/@types/week";
+import { CgSpinner } from "react-icons/cg";
 
 export default function Week() {
   const [weeks, setWeeks] = useState<WeekType | null>();
@@ -27,12 +28,17 @@ export default function Week() {
   return (
     <div className="min-h-[calc(100vh-80px)] bg-zinc-900">
       <Header />
-      <GridWeek>
-        {weeks &&
-          weeks?.days?.map((day) => {
+      {weeks ? (
+        <GridWeek>
+          {weeks?.days?.map((day) => {
             return <Day key={day.id} day={day} />;
           })}
-      </GridWeek>
+        </GridWeek>
+      ) : (
+        <div className="h-auto w-full flex items-center justify-center">
+          <CgSpinner size={45} color="#fff" className="animate-spin"/>
+        </div>
+      )}
     </div>
   );
 }

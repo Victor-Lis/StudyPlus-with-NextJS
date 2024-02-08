@@ -12,7 +12,7 @@ export default function Day({ day }: { day: DayType }) {
   return (
     <Link
       href={`/tarefas/day/${day.id}`}
-      className={`flex flex-col justify-between items-center py-5 px-5 bg-zinc-800 text-white text-center rounded`}
+      className={`flex flex-col justify-between items-center py-5 px-5 bg-zinc-800 text-white text-center rounded hover:scale-105 duration-300`}
     >
       <h2 className="text-3xl">{day.name}</h2>
       <h2 className="text-1xl text-blue-600">{formatDate(new Date(day.date))}</h2>
