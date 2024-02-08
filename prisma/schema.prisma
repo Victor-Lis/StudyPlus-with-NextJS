@@ -10,25 +10,49 @@ datasource db {
   url      = "file:./dev.db"
 }
 
+model Week {
+  id Int @id @default(autoincrement())
+  hours Float @default(0) 
+
+  days Day[]
+
+  @@map("weeks")
+}
+
+model Day {
+  id Int @id @default(autoincrement())
+  hours Float @default(0) 
+  date DateTime @default(now())
+  name String 
+
+  week Int
+  Week Week? @relation(fields: [week], references: [id])
+
+  tarefas Task[]
+  @@map("days")
+}
+
 model Task {
   id Int @id @default(autoincrement())
   title String
   desc String 
   primeira_hora String
   ultima_hora String
-  date DateTime
 
   hours Float
+
+  day Int
+  Day Day? @relation(fields: [day], references: [id])
 
   categorie Int
   Categorie Categorie? @relation(fields: [categorie], references: [id])
   
+  user_id String
+  User User? @relation(fields: [user_id], references: [id])
+
   completed Boolean @default(false)
 
   @@map("tasks")
-
-  user_id String
-  User User? @relation(fields: [user_id], references: [id])
 }
 
 model Categorie {
@@ -38,10 +62,12 @@ model Categorie {
   color String
 
   task Task[]
-  @@map("categories")
 
   user_id String
   User User? @relation(fields: [user_id], references: [id])
+
+  @@map("categories")
+
 }
 
 model Account {
