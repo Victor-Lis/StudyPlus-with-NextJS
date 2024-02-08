@@ -1,25 +1,27 @@
-"use server"
+"use server";
 
-import prisma from '@/lib/prisma'
-import { TarefaType } from '@/@types/tarefa';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import prisma from "@/lib/prisma";
+import { TarefaType } from "@/@types/tarefa";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
+import { verifyAuth } from "@/app/utils/verifyAuth";
 
-export async function getTasks(){
-
+export async function getTasks() {
+  if (await verifyAuth()) {
     const session = await getServerSession(authOptions);
 
     let tarefas: TarefaType[] = await prisma.task.findMany({
-        where: {
-            User: {
-                email: session?.user?.email
-            }
+      where: {
+        User: {
+          email: session?.user?.email,
         },
-        include: {
-            Categorie: true,
-        }
-    })
-    tarefas.sort((a,b) => a.date.getTime()-b.date.getTime())
+      },
+      include: {
+        Categorie: true,
+      },
+    });
+    tarefas.sort((a, b) => a.date.getTime() - b.date.getTime());
 
-    return tarefas
+    return tarefas;
+  }
 }
