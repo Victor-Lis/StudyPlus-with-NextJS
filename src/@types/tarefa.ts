@@ -1,4 +1,6 @@
-export interface Tarefa{
+import { CategoriaType } from "./categoria";
+
+export interface TarefaType{
     id: number;
     title: string;
     desc: string;
@@ -9,4 +11,5 @@ export interface Tarefa{
     categorie: number;
     completed: boolean;
     user_id: string;
+    Categorie: CategoriaType | null
 }
