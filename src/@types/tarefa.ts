@@ -6,10 +6,10 @@ export interface TarefaType{
     desc: string;
     primeira_hora: string;
     ultima_hora: string;
-    date: Date;
     hours: number;
+    day: number;
     categorie: number;
-    completed: boolean;
+    Categorie?: CategoriaType | null;
     user_id: string;
-    Categorie: CategoriaType | null
+    completed: boolean;
 }
