@@ -27,16 +27,18 @@ export default function Week() {
 
   return (
     <div className="min-h-[calc(100vh-80px)] bg-zinc-900">
-      <Header />
       {weeks ? (
-        <GridWeek>
-          {weeks?.days?.map((day) => {
-            return <Day key={day.id} day={day} />;
-          })}
-        </GridWeek>
+        <>
+          <Header />
+          <GridWeek>
+            {weeks?.days?.map((day) => {
+              return <Day key={day.id} day={day} />;
+            })}
+          </GridWeek>
+        </>
       ) : (
-        <div className="h-auto w-full flex items-center justify-center">
-          <CgSpinner size={45} color="#fff" className="animate-spin"/>
+        <div className="min-h-[calc(100vh-80px)] flex items-center justify-center">
+          <CgSpinner size={65} color="#fff" className="animate-spin mb-24" />
         </div>
       )}
     </div>
