@@ -9,6 +9,7 @@ import { verifyAuth } from "../utils/verifyAuth";
 import { api } from "@/lib/api";
 import { WeekType } from "@/@types/week";
 import { CgSpinner } from "react-icons/cg";
+import Footer from "./components/Footer";
 
 export default function Week() {
   const [weeks, setWeeks] = useState<WeekType | null>();
@@ -35,6 +36,7 @@ export default function Week() {
               return <Day key={day.id} day={day} />;
             })}
           </GridWeek>
+          <Footer/>
         </>
       ) : (
         <div className="min-h-[calc(100vh-80px)] flex items-center justify-center">
