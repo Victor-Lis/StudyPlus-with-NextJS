@@ -9,8 +9,8 @@ import { AuthProvider } from "@/providers/auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ETEC Enfermagem",
-  description: "Feito para o gerenciamento de estágios na ETEC Professor Carmine Biagio Tundisi.",
+  title: "StudyPlus",
+  description: "Feito para o gerenciamento das suas tarefas e agilizar sua vida.",
 };
 
 export default function RootLayout({
