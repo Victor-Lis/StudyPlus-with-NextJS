@@ -18,7 +18,7 @@ export default async function Dia({ params }: { params: ParamsType }) {
     <div className="min-h-[calc(100vh-80px)] bg-zinc-900 text-white">
       <Header params={parseInt(params.dia)}/>
       <div className="w-10/12 mx-auto grid grid-cols-1">
-        <Tarefas />
+        <Tarefas params={parseInt(params.dia)}/>
         {/* <Categorias /> */}
       </div>
     </div>
