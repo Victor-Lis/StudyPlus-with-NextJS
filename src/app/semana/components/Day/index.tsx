@@ -11,7 +11,7 @@ export default function Day({ day }: { day: DayType }) {
   
   return (
     <Link
-      href={`/tarefas/day/${day.id}`}
+      href={`/semana/dia/${day.id}`}
       className={`flex flex-col justify-between items-center py-5 px-5 bg-zinc-800 text-white text-center rounded hover:scale-105 duration-300`}
     >
       <h2 className="text-3xl">{day.name}</h2>
