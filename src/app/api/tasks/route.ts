@@ -2,27 +2,30 @@ import { NextResponse } from 'next/server'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/lib/auth'
 import prismaClient from '@/lib/prisma'
-import { DayType } from '@/@types/dia'
+import { TarefaType } from '@/@types/tarefa'
 import { redirect } from 'next/navigation'
 
 export async function GET(request: Request){
 
     const { searchParams } = new URL(request.url)
-    const id = searchParams.get("id")
+    const day = searchParams.get("day")
 
     const session = await getServerSession(authOptions);
 
-    if(!session?.user || !id){
+    if(!session?.user || !day){
         redirect("/")
     }
 
     try {
-        let day: DayType = await prismaClient.day.findFirst({
+        let tarefas: TarefaType[] = await prismaClient.task.findMany({
             where: {
-                id: parseInt(id as string),
+                day: parseInt(day),
+                User: {
+                    email: session.user.email
+                }
             },
-        }) as DayType
-        return NextResponse.json(day)
+        })
+        return NextResponse.json(tarefas)
     } catch (error) {
         return NextResponse.json({ error: "Week not found" }, {status: 400})
     }
