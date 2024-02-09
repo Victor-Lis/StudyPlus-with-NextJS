@@ -1,8 +1,6 @@
 import { DayType } from "@/@types/dia";
-import { api } from "@/lib/api";
 import prisma from "@/lib/prisma";
-import { redirect } from "next/navigation";
-import { FiX } from "react-icons/fi";
+import Button from "./components/Button";
 
 export default async function Header({params}:{params: number}) {
 
@@ -31,10 +29,7 @@ export default async function Header({params}:{params: number}) {
           {formatDate(new Date(day.date))}
         </h3>
       </div>
-      <div className="flex justify-center items-center hover:opacity-65 duration-300 cursor-pointer">
-        <h2 className="text-2xl">Voltar</h2> 
-        <FiX color="#ff0000" size={35}/>
-      </div>
+      <Button/>
     </header>
   );
 }
