@@ -6,6 +6,7 @@ import { api } from "@/lib/api";
 import { DayType } from "@/@types/dia";
 import Header from "./components/Header";
 import Tarefas from "./components/Tarefas";
+import Categorias from "./components/Categorias";
 
 interface ParamsType {
   dia: string;
@@ -33,8 +34,9 @@ export default function Dia({ params }: { params: ParamsType }) {
       {day && (
         <>
           <Header day={day} />
-          <div className="w-10/12 mx-auto grid grid-cols-1">
-            <Tarefas tarefas={day?.tarefas} />
+          <div className="w-10/12 mx-auto grid grid-cols-2">
+            <Tarefas/>
+            <Categorias/>
           </div>
         </>
       )}
