@@ -10,10 +10,14 @@ export async function GET(request: Request){
     const { searchParams } = new URL(request.url)
     const id = searchParams.get("id")
 
-    const session = await getServerSession(authOptions);
+    const session = await getServerSession(authOptions)
 
-    if(!session?.user || !id){
-        redirect("/")
+    // if(!session || !session.user){
+    //     return NextResponse.json({ error: "Not authotized" }, { status: 401 })
+    // }
+
+    if(!id){
+        return NextResponse.json({ error: "Bad Request" }, { status: 400 })
     }
 
     try {
@@ -24,6 +28,6 @@ export async function GET(request: Request){
         }) as DayType
         return NextResponse.json(day)
     } catch (error) {
-        return NextResponse.json({ error: "Week not found" }, {status: 400})
+        return NextResponse.json({ error: "Day not found" }, {status: 400})
     }
 }
