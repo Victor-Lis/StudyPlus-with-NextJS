@@ -1,23 +1,20 @@
 import { DayType } from "@/@types/dia";
 import { api } from "@/lib/api";
+import prisma from "@/lib/prisma";
 import { redirect } from "next/navigation";
 import { FiX } from "react-icons/fi";
 
 export default async function Header({params}:{params: number}) {
 
-  async function getTasks() {
-    let data: DayType = await api
-      .get(`/api/day?id=${params}`)
-      .then((data) => data.data)
-      .catch(() => redirect("/semana"))
-    if (data) {
-      return data as DayType
-    }else{
-      redirect("/semana")
-    }
+  async function getDay() {
+    return await prisma.day.findFirst({
+      where: {
+          id: params,
+      },
+  }) as DayType
   }
 
-  let day: DayType = await getTasks();
+  let day: DayType = await getDay();
 
   const formatNum = (n: number) => (n < 10 ? "0" + n : n);
 
