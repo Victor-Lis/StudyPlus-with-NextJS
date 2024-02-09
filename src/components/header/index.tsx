@@ -39,11 +39,11 @@ export default function Header() {
 
         {status === "authenticated" && (
           <div className="flex gap-x-4 items-baseline">
-            <Link href={"/semana"}>
+            <Link href={"/semana"} className="hover:scale-110 duration-300 cursor-pointer">
               <FiUser size={24} color="#fff" />
             </Link>
 
-            <button onClick={handleLogout}>
+            <button className="hover:scale-110 duration-300 cursor-pointer" onClick={handleLogout}>
               <FiLogOut size={24} color="#ff3a13" />
             </button>
           </div>

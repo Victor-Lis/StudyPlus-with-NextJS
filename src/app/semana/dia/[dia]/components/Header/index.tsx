@@ -1,11 +1,24 @@
-"use client"
-
 import { DayType } from "@/@types/dia";
-import { useRouter } from "next/navigation";
+import { api } from "@/lib/api";
+import { redirect } from "next/navigation";
 import { FiX } from "react-icons/fi";
 
-export default function Header({ day }: { day: DayType }) {
-  const route = useRouter()
+export default async function Header({params}:{params: number}) {
+
+  async function getTasks() {
+    let data: DayType = await api
+      .get(`/api/day?id=${params}`)
+      .then((data) => data.data)
+      .catch(() => redirect("/semana"))
+    if (data) {
+      return data as DayType
+    }else{
+      redirect("/semana")
+    }
+  }
+
+  let day: DayType = await getTasks();
+
   const formatNum = (n: number) => (n < 10 ? "0" + n : n);
 
   const formatDate = (date: Date) =>
@@ -21,7 +34,7 @@ export default function Header({ day }: { day: DayType }) {
           {formatDate(new Date(day.date))}
         </h3>
       </div>
-      <div className="flex justify-center items-center hover:opacity-65 duration-300 cursor-pointer" onClick={() => route.replace("/semana")}>
+      <div className="flex justify-center items-center hover:opacity-65 duration-300 cursor-pointer">
         <h2 className="text-2xl">Voltar</h2> 
         <FiX color="#ff0000" size={35}/>
       </div>

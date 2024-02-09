@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState } from "react";
 import { verifyAuth } from "@/utils/verifyAuth";
 import { api } from "@/lib/api";
@@ -12,34 +10,17 @@ interface ParamsType {
   dia: string;
 }
 
-export default function Dia({ params }: { params: ParamsType }) {
-  const [day, setDay] = useState<DayType | null>();
+export default async function Dia({ params }: { params: ParamsType }) {
 
-  async function handleGetTasks() {
-    let data: DayType = await api
-      .get(`/api/day?id=${params.dia}`)
-      .then((data) => data.data);
-    if (data) {
-      setDay(data as DayType);
-    }
-  }
-
-  useEffect(() => {
-    verifyAuth();
-    handleGetTasks();
-  }, []);
+  await verifyAuth();
 
   return (
     <div className="min-h-[calc(100vh-80px)] bg-zinc-900 text-white">
-      {day && (
-        <>
-          <Header day={day} />
-          <div className="w-10/12 mx-auto grid grid-cols-2">
-            <Tarefas/>
-            <Categorias/>
-          </div>
-        </>
-      )}
+      <Header params={parseInt(params.dia)}/>
+      <div className="w-10/12 mx-auto grid grid-cols-1">
+        <Tarefas />
+        {/* <Categorias /> */}
+      </div>
     </div>
   );
 }
