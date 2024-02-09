@@ -124,7 +124,7 @@ export async function GET(request: Request){
         }
 
         return NextResponse.json(week)
-
+        
     } catch (error) {
         return NextResponse.json({ error: "Week not found" }, {status: 400})
     }

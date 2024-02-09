@@ -10,11 +10,11 @@ export async function GET(request: Request){
     const { searchParams } = new URL(request.url)
     const id = searchParams.get("id")
 
-    const session = await getServerSession(authOptions)
+    const session = await getServerSession(authOptions);
 
-    // if(!session || !session.user){
-    //     return NextResponse.json({ error: "Not authotized" }, { status: 401 })
-    // }
+    if(!session?.user || !id){
+        redirect("/")
+    }
 
     if(!id){
         return NextResponse.json({ error: "Bad Request" }, { status: 400 })

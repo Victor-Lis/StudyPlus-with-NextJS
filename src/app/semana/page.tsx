@@ -14,7 +14,7 @@ import Footer from "./components/Footer";
 export default function Week() {
   const [weeks, setWeeks] = useState<WeekType | null>();
 
-  async function handleGetTasks() {
+  async function handleGetDays() {
     let data: WeekType = await api.get("/api/week").then((data) => data.data);
     if (data) {
       setWeeks(data as WeekType);
@@ -23,7 +23,7 @@ export default function Week() {
 
   useEffect(() => {
     verifyAuth();
-    handleGetTasks();
+    handleGetDays();
   }, []);
 
   return (
