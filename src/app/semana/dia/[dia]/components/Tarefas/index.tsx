@@ -21,7 +21,6 @@ export default async function Tarefas({ params }: { params: number }) {
   }
 
   let tarefas: TarefaType[] = await getTasks();
-  console.log(tarefas)
 
   return (
     <div className="w-full mt-5">
