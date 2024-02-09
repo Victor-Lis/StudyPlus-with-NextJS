@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import GridWeek from "./components/GridWeek";
 import Day from "./components/Day";
-import { verifyAuth } from "../utils/verifyAuth";
+import { verifyAuth } from "@/utils/verifyAuth";
 import { api } from "@/lib/api";
 import { WeekType } from "@/@types/week";
 import { CgSpinner } from "react-icons/cg";
