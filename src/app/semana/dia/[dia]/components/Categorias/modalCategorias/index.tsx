@@ -1,6 +1,6 @@
 "use client";
 import { useContext, useRef, MouseEvent, } from "react";
-import { ModalCategorieContext } from "../../providers/modalCategorieProvider";
+import { ModalCategorieContext } from "../providers/modalCategorieProvider";
 import CreateForm from "./components/createForm";
 import EditForm from "./components/editForm";
 

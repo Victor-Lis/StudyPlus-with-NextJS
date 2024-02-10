@@ -7,7 +7,7 @@ import {
 } from "react";
 import { updateCategorie } from "../../utils/functions";
 import { useRouter } from "next/navigation";
-import { ModalCategorieContext } from "../../../../providers/modalCategorieProvider";
+import { ModalCategorieContext } from "../../../providers/modalCategorieProvider";
 import { FaSpinner } from "react-icons/fa";
 
 export default function EditForm({ toggleModal }: { toggleModal: () => void }) {

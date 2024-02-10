@@ -1,6 +1,6 @@
 "use client";
 import { createContext, ReactNode, useEffect, useState } from "react";
-import Modal from "../components/modal";
+import Modal from "../modalCategorias";
 import { CategoriaType } from "@/@types/categoria";
 
 interface ModalCategorieContextData {
