@@ -1,6 +1,7 @@
 import { DayType } from "@/@types/dia";
 import prisma from "@/lib/prisma";
 import Button from "./components/Button";
+import { formatDate } from "@/utils/formatDate";
 
 export default async function Header({params}:{params: number}) {
 
@@ -13,14 +14,7 @@ export default async function Header({params}:{params: number}) {
   }
 
   let day: DayType = await getDay();
-
-  const formatNum = (n: number) => (n < 10 ? "0" + n : n);
-
-  const formatDate = (date: Date) =>
-    `${formatNum(date.getDate())}/${formatNum(
-      date.getMonth() + 1
-    )}/${date.getFullYear()}`;
-
+  
   return (
     <header className="w-10/12 mx-auto flex items-center justify-between">
       <div className="flex flex-col sm:flex-row justify-start items-baseline gap-x-5">

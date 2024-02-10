@@ -11,12 +11,12 @@ import { CgSpinner } from "react-icons/cg";
 import Footer from "./components/Footer";
 
 export default function Week() {
-  const [weeks, setWeeks] = useState<WeekType | null>();
+  const [week, setWeek] = useState<WeekType | null>();
 
   async function handleGetDays() {
     let data: WeekType = await api.get("/api/week").then((data) => data.data);
     if (data) {
-      setWeeks(data as WeekType);
+      setWeek(data as WeekType);
     }
   }
 
@@ -27,11 +27,11 @@ export default function Week() {
 
   return (
     <div className="min-h-[calc(100vh-80px)] bg-zinc-900">
-      {weeks ? (
+      {week ? (
         <>
-          <Header />
+          <Header week={week}/>
           <GridWeek>
-            {weeks?.days?.map((day) => {
+            {week?.days?.map((day) => {
               return <Day key={day.id} day={day} />;
             })}
           </GridWeek>

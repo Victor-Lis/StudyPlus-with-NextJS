@@ -122,7 +122,6 @@ export async function GET(request: Request){
         if(!week || (week.days[6].date.getTime() < new Date().getTime())){
             return NextResponse.json(await createWeek())
         }
-
         return NextResponse.json(week)
         
     } catch (error) {

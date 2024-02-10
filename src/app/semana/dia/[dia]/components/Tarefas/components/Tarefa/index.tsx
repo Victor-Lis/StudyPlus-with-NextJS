@@ -7,7 +7,7 @@ import { ModalTaskContext } from "../../providers/modalTaskProvider";
 import { deleteTask } from "../../utils/functions";
 import { useRouter } from "next/navigation";
 import { TarefaType } from "@/@types/tarefa";
-import { formatNum } from "@/utils/formatNum";
+import { formatHours } from "@/utils/formatHours";
 
 export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
   const { setEditTarefa } = useContext(ModalTaskContext)
@@ -44,7 +44,7 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
       </div>
       <div className="w-full flex items-center justify-center mb-5">
           <TbClockHour3 color="rgb(37,99,235)" size={27} />
-          <h2 className="ml-1">{`${formatNum(Math.floor(tarefa.hours/60))}:${formatNum(tarefa.hours%60)}h`}</h2>
+          <h2 className="ml-1">{formatHours(tarefa.hours)}</h2>
       </div>
       <div className="w-full flex items-center justify-around mb-5">
         <FiEdit className="hover:scale-110 duration-300 cursor-pointer" color="#00ff00" size={27} onClick={() => {setEditTarefa(tarefa)}}/>

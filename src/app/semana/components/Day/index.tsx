@@ -1,6 +1,6 @@
 import { DayType } from "@/@types/dia";
 import { formatDate } from "@/utils/formatDate";
-import { formatNum } from "@/utils/formatNum";
+import { formatHours } from "@/utils/formatHours";
 import Link from "next/link";
 import { FaTasks } from "react-icons/fa";
 import { TbClockHour8 } from "react-icons/tb";
@@ -23,7 +23,7 @@ export default function Day({ day }: { day: DayType }) {
         <div className="flex gap-x-2">
           <TbClockHour8 color="#fff" size={25}/>
           <h1 className="text-blue-600"> Horas </h1>
-          <h2> {`${formatNum(Math.floor(day.hours/60))}:${formatNum(day.hours%60)}h`} </h2>
+          <h2> {formatHours(day.hours)} </h2>
         </div>
       </div>
     </Link>
