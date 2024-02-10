@@ -122,6 +122,20 @@ export async function GET(request: Request){
         if(!week || (week.days[6].date.getTime() < new Date().getTime())){
             return NextResponse.json(await createWeek())
         }
+        
+        let hours = 0;
+        let dayHours = 0
+        
+        week.days.map((day) => {
+            day.tarefas?.map((task) => {
+                hours+=task.hours
+                dayHours += task.hours;
+            })
+            day["hours"] = dayHours
+            dayHours = 0;            
+        })
+
+        week["hours"] = hours;
         return NextResponse.json(week)
         
     } catch (error) {

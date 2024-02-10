@@ -12,7 +12,7 @@ datasource db {
 
 model Week {
   id Int @id @default(autoincrement())
-  hours Float @default(0) 
+  // hours Float @default(0) 
 
   days Day[]
 
@@ -21,7 +21,7 @@ model Week {
 
 model Day {
   id Int @id @default(autoincrement())
-  hours Float @default(0) 
+  // hours Float @default(0) 
   date DateTime @default(now())
   name String 
 

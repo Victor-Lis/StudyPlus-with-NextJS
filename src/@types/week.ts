@@ -1,7 +1,7 @@
-import { DiaType } from "./dia"
+import { DayType } from "./dia"
 
 export interface WeekType{
     id: number
-    hours: number
-    days: DiaType[]
+    hours?: number
+    days: DayType[]
 }

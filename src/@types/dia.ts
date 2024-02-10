@@ -3,10 +3,10 @@ import { WeekType } from "./week";
 
 export interface DayType{
     id: number;
-    hours: number;
+    hours?: number;
     date: Date;
     name: string;
     week: number;
-    Week: WeekType
+    Week?: WeekType;
     tarefas?: TarefaType[] | null
 }
