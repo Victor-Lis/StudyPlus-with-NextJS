@@ -2,7 +2,7 @@ import { CategoriaType } from "@/@types/categoria";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { ModalCategorieProvider } from "../../providers/modalCategorieProvider";
+import { ModalCategorieProvider } from "./providers/modalCategorieProvider";
 import Header from "./components/Header";
 import CategoriesGrid from "./components/CategoriesGrid";
 

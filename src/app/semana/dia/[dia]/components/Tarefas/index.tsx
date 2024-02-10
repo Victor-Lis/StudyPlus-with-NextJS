@@ -1,9 +1,8 @@
 import { TarefaType } from "@/@types/tarefa";
-import { api } from "@/lib/api";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import Button from "./components/Button";
+import Header from "./components/Header";
 
 export default async function Tarefas({ params }: { params: number }) {
   const session = await getServerSession(authOptions);
@@ -23,10 +22,7 @@ export default async function Tarefas({ params }: { params: number }) {
 
   return (
     <div className="w-full mt-5">
-      <div className="w-full flex justify-between items-center">
-        <h2 className="text-3xl text-blue-600">Tarefas</h2>
-        <Button/>
-      </div>
+      <Header/>
     </div>
   );
 }

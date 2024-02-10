@@ -2,7 +2,7 @@
 import { CategoriaType } from "@/@types/categoria";
 import { useContext, useState } from "react";
 import { FiEdit, FiTrash } from "react-icons/fi";
-import { ModalCategorieContext } from "../../../../providers/modalCategorieProvider";
+import { ModalCategorieContext } from "../../providers/modalCategorieProvider";
 import { deleteCategorie } from "../../utils/functions";
 import { useRouter } from "next/navigation";
 
