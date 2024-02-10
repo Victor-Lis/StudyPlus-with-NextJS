@@ -30,7 +30,7 @@ export default function Modal(
     >
       <div className="absolute inset-0 flex items-center justify-center">
         <div
-          className="bg-gray-800 shadow-lg w-4/5 md:w-1/2 max-w-2xl p-3 rounded"
+          className="bg-gray-800 shadow-lg w-4/5 sm:w-1/3 max-w-2xl p-3 rounded"
           ref={modalRef}
         > 
           {!hasCategoria && <CreateForm toggleModal={toggleModal}/>}

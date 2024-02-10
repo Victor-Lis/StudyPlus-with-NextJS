@@ -10,7 +10,7 @@ export default function CreateForm({
   toggleModal: () => void;
 }) {
   const [title, setTitle] = useState<string>("");
-  const [color, setColor] = useState<string>("");
+  const [color, setColor] = useState<string>("#000");
 
   const route = useRouter();
 
@@ -42,8 +42,8 @@ export default function CreateForm({
         onSubmit={(e) => handleCreateCategorie(e)}
       >
         <div className="mt-10 w-10/12 mx-auto flex flex-col sm:flex-row md:flex-col items-center justify-between">
-          <div className="flex items-center justify-center w-8/12">
-            <h2 className="mr-2">Título</h2>
+          <div className="flex items-center justify-between w-8/12">
+            <h2 className="mr-2 min-w-4">Título</h2>
             <input
               type="text"
               className="border-b-2 border-b-gray-300 px-1 w-6/12 rounded text-black"
@@ -51,8 +51,8 @@ export default function CreateForm({
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="flex items-center justify-center w-8/12 mt-10 sm:mt-0 md:mt-10">
-            <h2 className="mr-2">Cor</h2>
+          <div className="flex items-center justify-between w-8/12 mt-10 sm:mt-0 md:mt-10">
+            <h2 className="mr-2 min-w-4">Cor</h2>
             <input
               type="color"
               className="border-b-2 border-b-gray-300 px-1 w-6/12 rounded text-black"
@@ -66,7 +66,7 @@ export default function CreateForm({
           className={
             !loading
               ? "bg-green-500 mt-10 mx-auto py-1 px-5 hover:text-white hover:scale-105 duration-300 rounded"
-              : "bg-gray-500 mt-10 mx-auto py-1 px-10 text-white rounded"
+              : "bg-gray-500 opacity-75 scale-75 mt-10 mx-auto py-1 px-10 text-white rounded"
           }
         >
           {loading ? (
