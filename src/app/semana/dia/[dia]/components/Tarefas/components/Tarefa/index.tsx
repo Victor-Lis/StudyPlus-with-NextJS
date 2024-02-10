@@ -25,12 +25,12 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
     <div
       className={
         !loading ? 
-         `w-full bg-zinc-800 flex flex-col justify-center items-center rounded`
+         `w-full bg-zinc-800 flex flex-col justify-center items-center rounded my-2`
         : 
-         `w-full bg-gray-500 flex flex-col justify-center items-center rounded p-2`
+         `w-full bg-gray-500 flex flex-col justify-center items-center rounded my-2`
       }
     >
-      <h2 className="text-2xl mt-5 mb-4">{tarefa.title}</h2>
+      <h2 className="text-2xl mt-5 mb-4 text-center">{tarefa.title}</h2>
       <p className="w-full text-center mb-7 px-5">{tarefa.desc}</p>
       <div className="w-full flex items-center justify-around mb-5">
         <div className="flex items-center justify-center">
