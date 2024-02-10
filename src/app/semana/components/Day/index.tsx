@@ -25,7 +25,7 @@ export default function Day({ day }: { day: DayType }) {
         <div className="flex gap-x-2">
           <TbClockHour8 color="#fff" size={25}/>
           <h1 className="text-blue-600"> Horas </h1>
-          <h2> {`${day.hours}h` || `0h`} </h2>
+          <h2> {`${formatNum(parseInt((day.hours/60).toFixed(0)))}:${formatNum(day.hours%60)}h` || `0h`} </h2>
         </div>
       </div>
     </Link>
