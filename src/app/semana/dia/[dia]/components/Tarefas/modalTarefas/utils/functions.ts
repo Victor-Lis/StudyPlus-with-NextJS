@@ -207,4 +207,4 @@ async function getCategories() {
   })) as CategoriaType[];
 }
 
-export { createTask, updateTask, getCategories };
+export { createTask, updateTask, getCategories, };

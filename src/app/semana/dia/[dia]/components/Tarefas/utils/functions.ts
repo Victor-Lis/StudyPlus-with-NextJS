@@ -1,6 +1,7 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { subHours } from '../modalTarefas/utils/functions'
 
 async function deleteTask({
     id,
@@ -13,6 +14,8 @@ async function deleteTask({
       }
     });
   
+    subHours(task)
+
     return task;
   }
 
