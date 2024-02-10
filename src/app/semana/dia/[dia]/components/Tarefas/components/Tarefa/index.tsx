@@ -1,7 +1,7 @@
 "use client";
 import { CategoriaType } from "@/@types/categoria";
 import { useContext, useState } from "react";
-import { FiEdit, FiTrash, } from "react-icons/fi";
+import { FiEdit, FiTrash, FiBookmark } from "react-icons/fi";
 import { TbClockPlay, TbClockPin, TbClockHour3 } from "react-icons/tb";
 import { ModalTaskContext } from "../../providers/modalTaskProvider";
 import { deleteTask } from "../../utils/functions";
@@ -45,6 +45,10 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
       <div className="w-full flex items-center justify-center mb-5">
           <TbClockHour3 color="rgb(37,99,235)" size={27} />
           <h2 className="ml-1">{formatHours(tarefa.hours)}</h2>
+      </div>
+      <div className="w-full flex items-center justify-center mb-5">
+          <FiBookmark color={tarefa.Categorie?.color} size={27} />
+          <h2 className="ml-1">{tarefa.Categorie?.title}</h2>
       </div>
       <div className="w-full flex items-center justify-around mb-5">
         <FiEdit className="hover:scale-110 duration-300 cursor-pointer" color="#00ff00" size={27} onClick={() => {setEditTarefa(tarefa)}}/>

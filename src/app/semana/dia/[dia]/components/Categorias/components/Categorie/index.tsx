@@ -22,10 +22,11 @@ export default function Categorie({ categorie }: { categorie: CategoriaType }) {
     <div
       className={
         !loading ? 
-         `w-full bg-[${categorie.color}] flex flex-col justify-center items-center rounded my-2`
+         `w-full flex flex-col justify-center items-center rounded my-2`
         : 
          `w-full bg-gray-500 flex flex-col justify-center items-center rounded my-2`
       }
+      style={{backgroundColor: categorie.color}}
     >
       <h2 className="text-2xl mt-5 mb-6">{categorie.title}</h2>
       <div className="w-full flex items-center justify-around mb-5">

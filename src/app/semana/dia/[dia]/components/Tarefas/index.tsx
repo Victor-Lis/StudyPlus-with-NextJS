@@ -17,6 +17,9 @@ export default async function Tarefas({ params }: { params: number }) {
           email: session?.user?.email,
         },
       },
+      include: {
+        Categorie: true
+      }
     }) as TarefaType[]
   }
 
