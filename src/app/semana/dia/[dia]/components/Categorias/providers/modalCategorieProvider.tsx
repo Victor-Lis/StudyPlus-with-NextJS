@@ -19,7 +19,6 @@ export const ModalCategorieProvider = ({ children }: { children: ReactNode }) =>
   const [categoria, setCategoria] = useState<CategoriaType | null>();
 
   function handleModalVisible() {
-    console.log("rodou")
     clearCategoria();
     setVisible(!visible);
   }

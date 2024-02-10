@@ -36,7 +36,7 @@ export default function CreateForm({
 
   return (
     <>
-      <h2 className="text-green-500 text-2xl w-full">Cadastrar Categorias</h2>
+      <h2 className="text-green-500 text-2xl w-full">Cadastrar Categoria</h2>
       <form
         className="flex flex-col justify-center items-center"
         onSubmit={(e) => handleCreateCategorie(e)}

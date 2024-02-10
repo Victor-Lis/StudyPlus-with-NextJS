@@ -9,9 +9,9 @@ export default function CategoriesGrid({
   return (
     <>
       {categories.length ? (
-        <div className="w-full grid grid-cols-2 gap-2 mt-5">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5">
           {categories?.map((categorie) => {
-            return <Categorie categorie={categorie} />;
+            return <Categorie categorie={categorie} key={categorie.id}/>;
           })}
         </div>
       ) : (
