@@ -35,24 +35,33 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
       <div className="w-full flex items-center justify-around mb-5">
         <div className="flex items-center justify-center">
           <TbClockPlay color="rgb(37,99,235)" size={27} />
-          <h2 className="ml-1">{tarefa.primeira_hora}</h2>
+          <h1 className="ml-1">Começo:</h1>
+          <h2 className="ml-3">{tarefa.primeira_hora}</h2>
         </div>
         <div className="flex items-center justify-center">
           <TbClockPin color="rgb(37,99,235)" size={27} />
-          <h2 className="ml-1">{tarefa.ultima_hora}</h2>
+          <h1 className="ml-1">Final:</h1>
+          <h2 className="ml-3">{tarefa.ultima_hora}</h2>
         </div>
       </div>
       <div className="w-full flex items-center justify-center mb-5">
           <TbClockHour3 color="rgb(37,99,235)" size={27} />
-          <h2 className="ml-1">{formatHours(tarefa.hours)}</h2>
+          <h1 className="ml-1">Total:</h1>  
+          <h2 className="ml-3">{formatHours(tarefa.hours)}</h2>
       </div>
       <div className="w-full flex items-center justify-center mb-5">
           <FiBookmark color={tarefa.Categorie?.color} size={27} />
           <h2 className="ml-1">{tarefa.Categorie?.title}</h2>
       </div>
       <div className="w-full flex items-center justify-around mb-5">
-        <FiEdit className="hover:scale-110 duration-300 cursor-pointer" color="#00ff00" size={27} onClick={() => {setEditTarefa(tarefa)}}/>
-        <FiTrash className="hover:scale-110 duration-300 cursor-pointer" color="#ff0000" size={30} onClick={() => handleDeleteCategorie()}/>
+        <div className="flex justify-center items-center gap-x-2">
+          <FiEdit className="hover:scale-110 duration-300 cursor-pointer" color="#00ff00" size={27} onClick={() => {setEditTarefa(tarefa)}}/>
+          <h2>Editar</h2>
+        </div>
+        <div className="flex justify-center items-center gap-x-2">
+          <FiTrash className="hover:scale-110 duration-300 cursor-pointer" color="#ff0000" size={30} onClick={() => handleDeleteCategorie()}/>
+          <h2>Deletar</h2>
+        </div>
       </div>
     </div>
   );

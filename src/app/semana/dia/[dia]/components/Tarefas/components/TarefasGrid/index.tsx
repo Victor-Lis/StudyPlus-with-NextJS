@@ -9,7 +9,7 @@ export default function TarefasGrid({
   return (
     <>
       {tasks.length ? (
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2 mt-5">
+        <div className="w-full grid grid-cols-1 min-w-[800px]:grid-cols-2 gap-2 mt-5">
           {tasks?.map((tarefa) => {
             return <Tarefa tarefa={tarefa} key={tarefa.id}/>;
           })}
