@@ -7,13 +7,12 @@ import { ModalTaskContext } from "../../providers/modalTaskProvider";
 import { deleteTask } from "../../utils/functions";
 import { useRouter } from "next/navigation";
 import { TarefaType } from "@/@types/tarefa";
+import { formatNum } from "@/utils/formatNum";
 
 export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
   const { setEditTarefa } = useContext(ModalTaskContext)
   const [loading, setLoading] = useState<boolean>(false)
   const route = useRouter()
-
-  const formatNum = (n: number) => n < 10? "0"+n : n
 
   async function handleDeleteCategorie(){
     setLoading(true)
@@ -32,7 +31,7 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
       }
     >
       <h2 className="text-2xl mt-5 mb-4">{tarefa.title}</h2>
-      <p className="w-full text-center mb-7">{tarefa.desc}</p>
+      <p className="w-full text-center mb-7 px-5">{tarefa.desc}</p>
       <div className="w-full flex items-center justify-around mb-5">
         <div className="flex items-center justify-center">
           <TbClockPlay color="rgb(37,99,235)" size={27} />

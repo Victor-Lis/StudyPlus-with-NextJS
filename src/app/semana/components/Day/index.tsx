@@ -1,13 +1,11 @@
 import { DayType } from "@/@types/dia";
+import { formatDate } from "@/utils/formatDate";
+import { formatNum } from "@/utils/formatNum";
 import Link from "next/link";
 import { FaTasks } from "react-icons/fa";
 import { TbClockHour8 } from "react-icons/tb";
 
 export default function Day({ day }: { day: DayType }) {
-
-  const formatNum = (n: number) => n < 10? "0"+n : n
-
-  const formatDate = (date: Date) => `${formatNum(date.getDate())}/${formatNum(date.getMonth()+1)}/${date.getFullYear()}`
 
   return (
     <Link
