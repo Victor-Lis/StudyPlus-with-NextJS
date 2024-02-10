@@ -1,6 +1,5 @@
 "use client";
 
-import { TarefaType } from "@/@types/tarefa";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import GridWeek from "./components/GridWeek";
