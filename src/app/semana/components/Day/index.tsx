@@ -8,7 +8,7 @@ export default function Day({ day }: { day: DayType }) {
   const formatNum = (n: number) => n < 10? "0"+n : n
 
   const formatDate = (date: Date) => `${formatNum(date.getDate())}/${formatNum(date.getMonth()+1)}/${date.getFullYear()}`
-  
+
   return (
     <Link
       href={`/semana/dia/${day.id}`}
@@ -25,7 +25,7 @@ export default function Day({ day }: { day: DayType }) {
         <div className="flex gap-x-2">
           <TbClockHour8 color="#fff" size={25}/>
           <h1 className="text-blue-600"> Horas </h1>
-          <h2> {`${formatNum(parseInt((day.hours/60).toFixed(0)))}:${formatNum(day.hours%60)}h` || `0h`} </h2>
+          <h2> {`${formatNum(Math.floor(day.hours/60))}:${formatNum(day.hours%60)}h`} </h2>
         </div>
       </div>
     </Link>
