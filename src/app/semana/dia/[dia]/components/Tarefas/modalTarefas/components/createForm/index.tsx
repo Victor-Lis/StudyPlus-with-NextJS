@@ -7,7 +7,7 @@ import {
   Dispatch,
   SetStateAction,
 } from "react";
-import { createTask, getCategories } from "../../utils/functions";
+import { createTask, getCategories, verifyTime } from "../../utils/functions";
 import { useRouter } from "next/navigation";
 import { FaSpinner } from "react-icons/fa";
 import { ModalTaskContext } from "../../../providers/modalTaskProvider";
@@ -33,7 +33,7 @@ export default function CreateForm({
   async function handleCreateTask(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!!title && !!desc && primeiraHora && !!ultimaHora && !!categorie) {
+    if (!!title && !!desc && primeiraHora && !!ultimaHora && !!categorie && await verifyTime({firstTime: primeiraHora, secondTime: ultimaHora})) {
       setLoading(true);
       let novaTarefa = await createTask({
         title,
@@ -49,6 +49,11 @@ export default function CreateForm({
         toggleModal();
       }
     }
+
+    if(!(await verifyTime({firstTime: primeiraHora, secondTime: ultimaHora}))){
+      alert("A hora inicial tem que ser menor que a hora final da tarefa!")
+    }
+    
     setLoading(false);
   }
 
@@ -111,7 +116,7 @@ export default function CreateForm({
             <h2 className="mr-2 flex-1">Categoria</h2>
             <select className="border-b-2 border-b-gray-300 w-[48%] rounded text-black" onChange={(e) => setCategorie(parseInt(e.target.value))}>
               {categories.map((categoria) => {
-                return <option value={categoria.id} className={`bg-[${categoria.color}]`}>{categoria.title}</option>
+                return <option value={categoria.id} style={{backgroundColor: categoria.bg_color, color: categoria.text_color}}>{categoria.title}</option>
               })}
             </select>
           </div>

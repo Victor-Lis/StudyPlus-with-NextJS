@@ -1,6 +1,6 @@
 "use client";
 import { useContext, useEffect, useState, FormEvent } from "react";
-import { updateTask, getCategories } from "../../utils/functions";
+import { updateTask, getCategories, verifyTime } from "../../utils/functions";
 import { useRouter } from "next/navigation";
 import { ModalTaskContext } from "../../../providers/modalTaskProvider";
 import { FaSpinner } from "react-icons/fa";
@@ -28,7 +28,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
   async function handleCreateTask(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!!title && !!desc && primeiraHora && !!ultimaHora && !!categorie) {
+    if (!!title && !!desc && primeiraHora && !!ultimaHora && !!categorie && await verifyTime({firstTime: primeiraHora, secondTime: ultimaHora})) {
       setLoading(true);
       let novaTarefa = await updateTask({
         id: tarefa?.id as number,
@@ -45,6 +45,11 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
         toggleModal();
       }
     }
+
+    if(!(await verifyTime({firstTime: primeiraHora, secondTime: ultimaHora}))){
+      alert("A hora inicial tem que ser menor que a hora final da tarefa!")
+    }
+
     setLoading(false);
   }
 
@@ -114,7 +119,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
                   return (
                     <option
                       value={categoria.id}
-                      className={`bg-[${categoria.color}]`}
+                      style={{backgroundColor: categoria.bg_color, color: categoria.text_color}}
                     >
                       {categoria.title}
                     </option>

@@ -1,9 +1,7 @@
 "use server";
 
 import { CategoriaType } from "@/@types/categoria";
-import { DayType } from "@/@types/dia";
 import { TarefaType } from "@/@types/tarefa";
-import { WeekType } from "@/@types/week";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
@@ -135,4 +133,14 @@ async function getCategories() {
   })) as CategoriaType[];
 }
 
-export { createTask, updateTask, getCategories, };
+async function verifyTime({firstTime, secondTime}:{firstTime: string, secondTime: string}){
+  let time1 = (parseInt(firstTime[0]+firstTime[1])*60)+parseInt(firstTime[3]+firstTime[4])
+  let time2 = (parseInt(secondTime[0]+secondTime[1])*60)+parseInt(secondTime[3]+secondTime[4])
+  if(time1 >= time2){
+    return false
+  }else{
+    return true
+  }
+}
+
+export { createTask, updateTask, getCategories, verifyTime};
