@@ -1,7 +1,28 @@
 "use server";
-
+ 
 import prisma from "@/lib/prisma";
-import { subHours } from '../modalTarefas/utils/functions'
+
+async function toggleCompleted({
+  id,
+  completed
+}: {
+  id: number;
+  completed: boolean;
+}){
+  const task = await prisma.task.update({
+    where: {
+      id,
+    },
+    data: {
+      completed,
+    },
+    include: {
+      Categorie: true,
+      Day: true,
+    }
+  })
+  return task;
+}
 
 async function deleteTask({
     id,
@@ -13,10 +34,8 @@ async function deleteTask({
         id,
       }
     });
-  
-    subHours(task)
 
     return task;
   }
 
-export { deleteTask };
+export { deleteTask, toggleCompleted };
