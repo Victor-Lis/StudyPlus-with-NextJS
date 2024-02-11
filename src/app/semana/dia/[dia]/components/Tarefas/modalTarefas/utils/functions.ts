@@ -8,72 +8,6 @@ import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 
-export async function sumHours(task: TarefaType){
-    let day = await prisma.day.findFirst({
-        where: {
-            id: task.day
-        }
-    }) as DayType
-
-    await prisma.day.update({
-        where: {
-            id: day.id
-        },
-        data: {
-            hours: day.hours + task.hours
-        }
-    })
-
-    let week = await prisma.week.findFirst({
-        where: {
-            id: day.week
-        }
-    }) as WeekType
-
-    await prisma.week.update({
-        where: {
-            id: week.id
-        },
-        data: {
-            hours: week.hours + task.hours
-        }
-    })
-}
-
-export async function subHours(task: TarefaType){
-
-    let day = await prisma.day.findFirst({
-        where: {
-            id: task.day
-        }
-    }) as DayType
-
-    await prisma.day.update({
-        where: {
-            id: day.id
-        },
-        data: {
-            hours: day.hours - task.hours
-        }
-    })
-
-    let week = await prisma.week.findFirst({
-        where: {
-            id: day.week
-        }
-    }) as WeekType
-
-    await prisma.week.update({
-        where: {
-            id: week.id
-        },
-        data: {
-            hours: week.hours - task.hours
-        }
-    })
-    
-}
-
 async function createTask({
   title,
   desc,
@@ -123,8 +57,6 @@ async function createTask({
     },
   });
 
-  sumHours(task)
-
   return task;
 }
 
@@ -152,8 +84,6 @@ async function updateTask({
       id,
     }
   }) as TarefaType
-
-  subHours(initTask)
 
   if (ultima_hora == "00:00") {
     ultima_hora = "24:00";
@@ -189,8 +119,6 @@ async function updateTask({
       },
     },
   });
-
-  sumHours(task)
 
   return task;
 }
