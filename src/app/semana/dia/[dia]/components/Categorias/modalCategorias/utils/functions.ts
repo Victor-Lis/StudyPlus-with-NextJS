@@ -6,17 +6,20 @@ import { getServerSession } from "next-auth";
 
 async function createCategorie({
   title,
-  color,
+  text_color,
+  bg_color,
 }: {
   title: string;
-  color: string;
+  text_color: string;
+  bg_color: string;
 }) {
   const session = await getServerSession(authOptions)
 
   const categorie = await prisma.categorie.create({
     data: {
       title,
-      color,
+      text_color,
+      bg_color,
       User: {
         connect: {
           email: session?.user?.email as string,
@@ -30,17 +33,20 @@ async function createCategorie({
 
 async function updateCategorie({
     title,
-    color,
+    text_color,
+    bg_color,
     id,
   }: {
     title: string | undefined;
-    color: string | undefined;
+    text_color: string | undefined;
+    bg_color: string | undefined;
     id: number;
   }) {
     const categorie = await prisma.categorie.update({
       data: {
         title,
-        color,
+        text_color,
+        bg_color,
       },
       where: {
         id,

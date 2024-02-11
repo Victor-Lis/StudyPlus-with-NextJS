@@ -10,7 +10,8 @@ export default function CreateForm({
   toggleModal: () => void;
 }) {
   const [title, setTitle] = useState<string>("");
-  const [color, setColor] = useState<string>("#000");
+  const [textColor, setTextColor] = useState<string>("#ffffff");
+  const [backgroundColor, setBackgroundColor] = useState<string>("#000000");
 
   const route = useRouter();
 
@@ -19,11 +20,12 @@ export default function CreateForm({
   async function handleCreateCategorie(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if (!!title && !!color) {
+    if (!!title && !!backgroundColor && !!textColor) {
       setLoading(true);
       let novaCategoria = await createCategorie({
         title,
-        color,
+        bg_color: backgroundColor,
+        text_color: textColor,
       });
 
       if (novaCategoria) {
@@ -52,12 +54,21 @@ export default function CreateForm({
             />
           </div>
           <div className="flex items-center justify-between w-8/12 mt-10 sm:mt-0 md:mt-10">
-            <h2 className="mr-2 min-w-4">Cor</h2>
+            <h2 className="mr-2 min-w-4">Cor do texto</h2>
+            <input
+              type="color"
+              className={`border-b-2 border-b-gray-300 px-1 w-6/12 rounded text-black`}
+              value={textColor}
+              onChange={(e) => setTextColor(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center justify-between w-8/12 mt-10 sm:mt-0 md:mt-10">
+            <h2 className="mr-2 min-w-4">Cor do fundo</h2>
             <input
               type="color"
               className="border-b-2 border-b-gray-300 px-1 w-6/12 rounded text-black"
-              value={color}
-              onChange={(e) => setColor(e.target.value)}
+              value={backgroundColor}
+              onChange={(e) => setBackgroundColor(e.target.value)}
             />
           </div>
         </div>

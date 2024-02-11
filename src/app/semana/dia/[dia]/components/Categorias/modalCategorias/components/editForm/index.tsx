@@ -14,8 +14,8 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
   const { categoria, clearCategoria } = useContext(ModalCategorieContext);
 
   const [title, setTitle] = useState<string | undefined>(categoria?.title);
-  const [color, setColor] = useState<string | undefined>(categoria?.color);
-
+  const [backgroundColor, setBackgroundColor] = useState<string>(categoria?.bg_color as string);
+  const [textColor, setTextColor] = useState<string>(categoria?.text_color as string);
   const route = useRouter();
 
   const [loading, setLoading] = useState(false)
@@ -26,7 +26,8 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
     setLoading(true)
     let novoAluno = await updateCategorie({
       title,
-      color,
+      bg_color: backgroundColor,
+      text_color: textColor,
       id: categoria?.id as number,
     });
 
@@ -55,13 +56,22 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="flex items-center justify-center w-8/12 mt-10 sm:mt-0 md:mt-10">
-            <h2 className="mr-2">Cor</h2>
+          <div className="flex items-center justify-between w-8/12 mt-10 sm:mt-0 md:mt-10">
+            <h2 className="mr-2 min-w-4">Cor do texto</h2>
             <input
               type="color"
               className="border-b-2 border-b-gray-300 px-1 w-6/12 rounded text-black"
-              value={color}
-              onChange={(e) => setColor(e.target.value)}
+              value={textColor}
+              onChange={(e) => setTextColor(e.target.value)}
+            />
+          </div>
+          <div className="flex items-center justify-between w-8/12 mt-10 sm:mt-0 md:mt-10">
+            <h2 className="mr-2 min-w-4">Cor do fundo</h2>
+            <input
+              type="color"
+              className="border-b-2 border-b-gray-300 px-1 w-6/12 rounded text-black"
+              value={backgroundColor}
+              onChange={(e) => setBackgroundColor(e.target.value)}
             />
           </div>
         </div>
