@@ -118,6 +118,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
                 if (categoria.id !== tarefa?.categorie) {
                   return (
                     <option
+                      key={categoria.id}
                       value={categoria.id}
                       style={{backgroundColor: categoria.bg_color, color: categoria.text_color}}
                     >

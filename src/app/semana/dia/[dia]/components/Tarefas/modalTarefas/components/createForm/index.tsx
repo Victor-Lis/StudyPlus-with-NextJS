@@ -53,7 +53,7 @@ export default function CreateForm({
     if(!(await verifyTime({firstTime: primeiraHora, secondTime: ultimaHora}))){
       alert("A hora inicial tem que ser menor que a hora final da tarefa!")
     }
-    
+
     setLoading(false);
   }
 
@@ -116,7 +116,7 @@ export default function CreateForm({
             <h2 className="mr-2 flex-1">Categoria</h2>
             <select className="border-b-2 border-b-gray-300 w-[48%] rounded text-black" onChange={(e) => setCategorie(parseInt(e.target.value))}>
               {categories.map((categoria) => {
-                return <option value={categoria.id} style={{backgroundColor: categoria.bg_color, color: categoria.text_color}}>{categoria.title}</option>
+                return <option key={categoria.id} value={categoria.id} style={{backgroundColor: categoria.bg_color, color: categoria.text_color}}>{categoria.title}</option>
               })}
             </select>
           </div>
