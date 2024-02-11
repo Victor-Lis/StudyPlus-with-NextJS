@@ -96,12 +96,11 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
           />
           <h2>Editar</h2>
         </div>
-        <div className="flex justify-center items-center gap-x-2">
+        <div className="flex justify-center items-center gap-x-2" onClick={() => handleDeleteCategorie()}>
           <FiTrash
             className="hover:scale-110 duration-300 cursor-pointer"
             color="#ff0000"
             size={30}
-            onClick={() => handleDeleteCategorie()}
           />
           <h2>Deletar</h2>
         </div>
