@@ -9,7 +9,7 @@ Também é mais um projeto que vejo como Next realmente agiliza e facilita as co
 Passou por 3 versões: 
 - HTML / CSS / JS no Front-End e Node / JSON no Back-End
 - [React no Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Prisma Schema no Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End)
-- E a atual, usando apenas NextJS e Prisma.
+- E a atual, usando apenas NextJS e Prisma. A grande vantagem dessa versão é que as anteriores trabalhavam com armazenamento local e não tinham separações por user, a atual trabalha com um banco em nuvem e contém sistema de users, sendo assim pode ser acessada de qualquer lugar por qualquer pessoa!
 
 ## Uso / Exemplos [Em construção...]
 
