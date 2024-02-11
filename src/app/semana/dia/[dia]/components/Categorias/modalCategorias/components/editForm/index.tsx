@@ -41,7 +41,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
 
   return (
     <>
-      <h2 className="text-green-500 text-2xl w-full">Atualizar Aluno</h2>
+      <h2 className="text-green-500 text-2xl w-full">Editar Categoria</h2>
       <form
         className="flex flex-col justify-center items-center"
         onSubmit={(e) => handleUpdateCategorie(e)}

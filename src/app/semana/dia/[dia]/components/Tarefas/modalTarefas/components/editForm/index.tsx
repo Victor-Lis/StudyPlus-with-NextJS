@@ -66,7 +66,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
 
   return (
     <>
-      <h2 className="text-green-500 text-2xl w-full">Cadastrar Tarefa</h2>
+      <h2 className="text-green-500 text-2xl w-full">Editar Tarefa</h2>
       <form
         className="flex flex-col justify-center items-center text-white"
         onSubmit={(e) => handleCreateTask(e)}
@@ -113,7 +113,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
               className="border-b-2 border-b-gray-300 w-[48%] rounded text-black"
               onChange={(e) => setCategorie(parseInt(e.target.value))}
             >
-              {categorie === tarefa?.categorie && <option value={""}> </option>}
+              {categorie === tarefa?.categorie && <option value={tarefa?.categorie}>{tarefa?.categorie}</option>}
               {categories.map((categoria) => {
                 if (categoria.id !== tarefa?.categorie) {
                   return (
