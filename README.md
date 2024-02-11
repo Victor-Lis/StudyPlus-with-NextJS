@@ -1,36 +1,38 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Study Plus with NextJS
 
-First, run the development server:
+Esse é o meu primeiro projeto que posso postar aqui usando NextJS e TSX, migrei para o TS após entender o porque de seu uso, consegui entender que se torna muito mais fácil entender uma aplicação feita em TS do que uma usando apenas JS, tanto para outros devs, tanto para o próprio dev depois de um tempo.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Também é mais um projeto que vejo como Next realmente agiliza e facilita as coisas, o exemplo mais fácil que posso usar é que, esse projeto é uma releitura de um projeto que já venho insistindo em construir desde meados de 2023, a ideia começou em uma conversa com o [Vini Buava](https://github.com/Vinicius-B-Leite).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Passou por 3 versões: 
+- HTML / CSS / JS no Front-End e Node / JSON no Back-End
+- [React no Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Prisma Schema no Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End)
+- E a atual, usando apenas NextJS e Prisma.
+## Aprendizados
+- Trabalhar com TS/TSX;
+- Trabalhar com NextJS;
+- Trabalhar com CSR e SSR;
+- Utilizar Google Auth.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
+## Autores
 
-To learn more about Next.js, take a look at the following resources:
+- ![Home](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/StudyPlus.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- ![Semana](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Semana.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- ![Dia](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Day.png)
 
-## Deploy on Vercel
+- ![Criar Tarefa](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Criar%20Tarefa.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- ![Editar Tarefa](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Editar%20Tarefa.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- ![Criar Categoria](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Criar%20Categoria.png)
+
+- ![Editar Categoria](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Editar%20Categoria.png)
+## Autores
+
+- [@Victor-Lis](https://www.github.com/Victor-Lis)
+
