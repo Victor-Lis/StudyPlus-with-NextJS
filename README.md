@@ -10,28 +10,31 @@ Passou por 3 versões:
 - HTML / CSS / JS no Front-End e Node / JSON no Back-End
 - [React no Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Prisma Schema no Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End)
 - E a atual, usando apenas NextJS e Prisma.
+
+## Uso / Exemplos [Em construção...]
+
 ## Aprendizados
 - Trabalhar com TS/TSX;
 - Trabalhar com NextJS;
 - Trabalhar com CSR e SSR;
 - Utilizar Google Auth.
 
-
 ## Autores
 
-- ![Home](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/StudyPlus.png)
+![Home](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/StudyPlus.png)
 
-- ![Semana](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Semana.png)
+![Semana](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Semana.png)
 
-- ![Dia](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Day.png)
+![Dia](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Day.png)
 
-- ![Criar Tarefa](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Criar%20Tarefa.png)
+![Criar Tarefa](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Criar%20Tarefa.png)
 
-- ![Editar Tarefa](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Editar%20Tarefa.png)
+![Editar Tarefa](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Editar%20Tarefa.png)
 
-- ![Criar Categoria](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Criar%20Categoria.png)
+![Criar Categoria](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Criar%20Categoria.png)
 
-- ![Editar Categoria](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Editar%20Categoria.png)
+![Editar Categoria](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Editar%20Categoria.png)
+
 ## Autores
 
 - [@Victor-Lis](https://www.github.com/Victor-Lis)
