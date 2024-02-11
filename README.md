@@ -35,6 +35,8 @@ Passou por 3 versões:
 
 ![Editar Categoria](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/Editar%20Categoria.png)
 
+## [Confira você mesmo!](https://study-plus-by-dev-victor-lis.vercel.app/)
+
 ## Autores
 
 - [@Victor-Lis](https://www.github.com/Victor-Lis)
