@@ -59,7 +59,8 @@ model Categorie {
 
   id Int @id @default(autoincrement())
   title String
-  color String
+  text_color String
+  bg_color String
 
   task Task[]
 
