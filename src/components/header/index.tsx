@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { FiUser, FiLogOut, FiLoader, FiLock } from "react-icons/fi";
+import { FiLogOut, FiLoader, FiLock } from "react-icons/fi";
+import { LiaCalendarWeekSolid } from "react-icons/lia";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Header() {
@@ -40,7 +41,7 @@ export default function Header() {
         {status === "authenticated" && (
           <div className="flex gap-x-4 items-baseline">
             <Link href={"/semana"} className="hover:scale-110 duration-300 cursor-pointer">
-              <FiUser size={24} color="#fff" />
+              <LiaCalendarWeekSolid size={24} color="#fff" />
             </Link>
 
             <button className="hover:scale-110 duration-300 cursor-pointer" onClick={handleLogout}>
