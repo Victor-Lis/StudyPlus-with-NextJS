@@ -1,9 +1,7 @@
 "use server";
 
 import { CategoriaType } from "@/@types/categoria";
-import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
-import { getServerSession } from "next-auth";
 
 async function deleteTask({categorie}:{categorie: CategoriaType}){
   categorie?.task.map(async (task, index) => {
