@@ -55,7 +55,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
 
   async function handleGetCategories() {
     let data = await getCategories();
-    if (data) {
+    if (data && data.length) {
       setCategories(data);
     }
   }

@@ -59,7 +59,7 @@ export default function CreateForm({
 
   async function handleGetCategories(){
     let data = await getCategories()
-    if(data){
+    if(data && data.length){
       setCategorie(data[0].id)
       setCategories(data)
     }
