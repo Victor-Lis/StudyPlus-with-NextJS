@@ -113,7 +113,7 @@ export default function EditForm({ toggleModal }: { toggleModal: () => void }) {
               className="border-b-2 border-b-gray-300 w-[48%] rounded text-black"
               onChange={(e) => setCategorie(parseInt(e.target.value))}
             >
-              {categorie === tarefa?.categorie && <option value={tarefa?.categorie}>{tarefa?.categorie}</option>}
+              {categorie === tarefa?.categorie && <option value={tarefa?.categorie}>{categories.find((task) => tarefa?.categorie == task.id)?.title}</option>}
               {categories.map((categoria) => {
                 if (categoria.id !== tarefa?.categorie) {
                   return (

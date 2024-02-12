@@ -85,9 +85,9 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
         </h2>
       </div>
       <div className="w-full flex items-center justify-around mb-5">
-        <div className="flex justify-center items-center gap-x-2">
+        <div className="flex justify-center items-center gap-x-2 hover:scale-110 duration-300 cursor-pointer">
           <FiEdit
-            className="hover:scale-110 duration-300 cursor-pointer"
+            className=""
             color="#00ff00"
             size={27}
             onClick={() => {
@@ -96,9 +96,9 @@ export default function Tarefa({ tarefa }: { tarefa: TarefaType }) {
           />
           <h2>Editar</h2>
         </div>
-        <div className="flex justify-center items-center gap-x-2" onClick={() => handleDeleteCategorie()}>
+        <div className="flex justify-center items-center gap-x-2 hover:scale-110 duration-300 cursor-pointer" onClick={() => handleDeleteCategorie()}>
           <FiTrash
-            className="hover:scale-110 duration-300 cursor-pointer"
+            className=""
             color="#ff0000"
             size={30}
           />

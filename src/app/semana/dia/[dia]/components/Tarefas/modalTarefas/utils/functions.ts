@@ -136,7 +136,7 @@ async function getCategories() {
 async function verifyTime({firstTime, secondTime}:{firstTime: string, secondTime: string}){
   let time1 = (parseInt(firstTime[0]+firstTime[1])*60)+parseInt(firstTime[3]+firstTime[4])
   let time2 = (parseInt(secondTime[0]+secondTime[1])*60)+parseInt(secondTime[3]+secondTime[4])
-  if(time1 >= time2){
+  if(time1 >= time2 && time2 !== 0){
     return false
   }else{
     return true

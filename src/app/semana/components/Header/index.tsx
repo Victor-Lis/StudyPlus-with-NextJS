@@ -1,6 +1,5 @@
 import { WeekType } from "@/@types/week";
 import { formatHours } from "@/utils/formatHours";
-import { formatNum } from "@/utils/formatNum";
 
 export default function Header({week}:{week: WeekType}) {
  return (
