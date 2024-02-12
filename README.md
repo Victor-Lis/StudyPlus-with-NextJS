@@ -11,11 +11,21 @@ Passou por 3 versões:
 - [React no Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Prisma Schema no Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End)
 - E a atual, usando apenas NextJS e Prisma. A grande vantagem dessa versão é que as anteriores trabalhavam com armazenamento local e não tinham separações por user, a atual trabalha com um banco em nuvem e contém sistema de users, sendo assim pode ser acessada de qualquer lugar por qualquer pessoa!
 
+## Aprendizados
+- Trabalhar com TS/TSX;
+- Trabalhar com NextJS;
+- Trabalhar com CSR e SSR;
+- Utilizar Google Auth.
+
 ## Uso / Exemplos
 
 ### Next-Auth
 Sem dúvidas um dos recursos que eu mais me interesso no NextJS é a biblioteca Next-Auth, pois permite inumeras formas de SignIn / SignUp nas aplicações, porém é tem uma arquitetura um tanto complexa de explicar por aqui, então deixarei o link para a documentação aqui a baixo:
 [https://next-auth.js.org/](https://next-auth.js.org/)
+
+Também deixo aqui os links que utilizei para autenticação utilizada nessa aplicação:
+- [Prisma Adapter](https://next-auth.js.org/v3/adapters/prisma-legacy#setup)
+- [Google Auth](https://next-auth.js.org/v3/providers/google)
 
 ### Server-side Rendering (SSR)
 Outra feature muito bacana para mim do NextJS é o SSR e o CSR, como são conceitos relativamente simples, deixo abaixo um trecho de código da própria documentação e o link da mesma:
@@ -66,12 +76,6 @@ export function Page() {
   return <p>{data ? `Your data: ${data}` : 'Loading...'}</p>
 }
 ```
-
-## Aprendizados
-- Trabalhar com TS/TSX;
-- Trabalhar com NextJS;
-- Trabalhar com CSR e SSR;
-- Utilizar Google Auth.
 
 ## Autores
 
