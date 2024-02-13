@@ -26,10 +26,10 @@ export default function Categorie({ categorie }: { categorie: CategoriaType }) {
         : 
          `w-full bg-gray-500 flex flex-col justify-betweem items-center rounded overflow-hidden`
       }
-      style={{backgroundColor: categorie.bg_color, color: categorie.text_color}}
+      style={!loading ? {backgroundColor: categorie.bg_color, color: categorie.text_color}: {}}
     >
       <h2 className="text-2xl text-center my-2 flex-1">{categorie.title}</h2>
-      <div className="w-full flex items-center justify-around bg-zinc-800 py-2">
+      <div className="w-full flex items-center justify-around bg-zinc-800 py-2 scale-105">
         <FiEdit className="hover:scale-110 duration-300 cursor-pointer" color="#00ff00" size={27} onClick={() => {setEditCategoria(categorie)}}/>
         <FiTrash className="hover:scale-110 duration-300 cursor-pointer" color="#ff0000" size={30} onClick={() => handleDeleteCategorie()}/>
       </div>
