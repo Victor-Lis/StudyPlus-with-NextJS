@@ -4,6 +4,7 @@ import { CategoriaType } from "@/@types/categoria";
 import { TarefaType } from "@/@types/tarefa";
 import { authOptions } from "@/lib/auth";
 import prisma from "@/lib/prisma";
+import { hourToTime } from "@/utils/hourToTime";
 import { getServerSession } from "next-auth";
 
 async function createTask({
@@ -134,8 +135,8 @@ async function getCategories() {
 }
 
 async function verifyTime({firstTime, secondTime}:{firstTime: string, secondTime: string}){
-  let time1 = (parseInt(firstTime[0]+firstTime[1])*60)+parseInt(firstTime[3]+firstTime[4])
-  let time2 = (parseInt(secondTime[0]+secondTime[1])*60)+parseInt(secondTime[3]+secondTime[4])
+  let time1 = hourToTime({time: firstTime})
+  let time2 = hourToTime({time: secondTime})
   if(time1 >= time2 && time2 !== 0){
     return false
   }else{
