@@ -16,7 +16,7 @@ export default async function Categorias({ params }: { params: number }) {
           email: session?.user?.email,
         },
       },
-    })) as CategoriaType[];
+    })).sort((a,b) => a.title.localeCompare(b.title)) as CategoriaType[];
   }
 
   let categories: CategoriaType[] = await getCategories();
