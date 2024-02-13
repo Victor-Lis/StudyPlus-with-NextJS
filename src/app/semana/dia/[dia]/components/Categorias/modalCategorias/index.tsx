@@ -25,7 +25,7 @@ export default function Modal(
 
   return (
     <div
-      className="absolute bg-gray-900/80 min-w-full min-h-screen top-0 left-0"
+      className="absolute bg-gray-900/80 min-w-full min-h-screen top-0 left-0 z-10"
       onClick={handleModalClick}
     >
       <div className="absolute inset-0 flex items-center justify-center">
