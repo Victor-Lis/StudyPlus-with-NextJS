@@ -5,11 +5,15 @@ Esse é o meu primeiro projeto que posso postar aqui usando NextJS e TSX, migrei
 
 Também é mais um projeto que vejo como Next realmente agiliza e facilita as coisas, o exemplo mais fácil que posso usar é que, esse projeto é uma releitura de um projeto que já venho insistindo em construir desde meados de 2023, a ideia começou em uma conversa com o [Vini Buava](https://github.com/Vinicius-B-Leite).
 
-
 Passou por 3 versões: 
 - HTML / CSS / JS no Front-End e Node / JSON no Back-End
 - [React no Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Prisma Schema no Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End)
 - E a atual, usando apenas NextJS e Prisma. A grande vantagem dessa versão é que as anteriores trabalhavam com armazenamento local e não tinham separações por user, a atual trabalha com um banco em nuvem e contém sistema de users, sendo assim pode ser acessada de qualquer lugar por qualquer pessoa!
+
+## Techs
+<div align="center">
+  <img width="40px" height="40px" src="https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-original-wordmark.svg" alt="NextJS">
+</div>
 
 ## Aprendizados
 - Trabalhar com TS/TSX;
