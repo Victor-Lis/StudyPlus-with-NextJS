@@ -99,54 +99,77 @@ export async function GET(request: Request) {
   const session = await getServerSession(authOptions);
   const { searchParams } = new URL(request.url);
 
-  const email = searchParams.get("email")
+  const email = searchParams.get("email");
+  const id = searchParams.get("id");
+
+  if (!email) {
+    return NextResponse.json(
+      { error: "Email não encontrado" },
+      { status: 400 }
+    );
+  }
+
+  if (!id) {
+    return NextResponse.json({ error: "Id não encontrado" }, { status: 400 });
+  }
 
   if (!session?.user) {
     redirect("/");
   }
 
   try {
-    let weeks: WeekType[] = await prismaClient.week.findMany({
-      include: {
-        days: {
-          include: {
-            tarefas: {
-              where: {
-                User: {
-                  email: {
-                    equals: email 
+    let findUser = await prismaClient.user.findFirst({
+      where: {
+        email: {
+          equals: email,
+        },
+      },
+    });
+    if (findUser?.id.slice(0, 5) === id) {
+      let weeks: WeekType[] = await prismaClient.week.findMany({
+        include: {
+          days: {
+            include: {
+              tarefas: {
+                where: {
+                  User: {
+                    email: {
+                      equals: email,
+                    },
                   },
                 },
               },
             },
           },
         },
-      },
-    });
-    weeks.reverse();
-    let week: WeekType = weeks[0];
-
-    if (!week || week.days[6].date.getTime() < new Date().getTime()) {
-      return NextResponse.json(await createWeek());
-    }
-
-    let hours = 0;
-    let dayHours = 0;
-
-    week.days.map((day) => {
-      day.tarefas?.map((task) => {
-        if (task.completed) {
-          hours += task.hours;
-          dayHours += task.hours;
-        }
       });
-      day["hours"] = dayHours;
-      dayHours = 0;
-    });
+      weeks.reverse();
+      let week: WeekType = weeks[0];
 
-    week["hours"] = hours;
-    return NextResponse.json(week);
+      if (!week || week.days[6].date.getTime() < new Date().getTime()) {
+        return NextResponse.json(await createWeek());
+      }
+
+      let hours = 0;
+      let dayHours = 0;
+
+      week.days.map((day) => {
+        day.tarefas?.map((task) => {
+          if (task.completed) {
+            hours += task.hours;
+            dayHours += task.hours;
+          }
+        });
+        day["hours"] = dayHours;
+        dayHours = 0;
+      });
+
+      week["hours"] = hours;
+      return NextResponse.json(week);
+    }else{
+      return NextResponse.json({ error: "Credenciais não batem" }, { status: 400 });
+    }
   } catch (error) {
-    return NextResponse.json({ error: "Week not found" }, { status: 400 });
+    return NextResponse.json({ error: "Semana não encontrada" }, { status: 400 });
   }
 }
