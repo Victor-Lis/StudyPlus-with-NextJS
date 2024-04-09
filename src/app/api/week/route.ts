@@ -97,6 +97,9 @@ async function createWeek() {
 // read
 export async function GET(request: Request) {
   const session = await getServerSession(authOptions);
+  const { searchParams } = new URL(request.url);
+
+  const email = searchParams.get("email")
 
   if (!session?.user) {
     redirect("/");
@@ -110,7 +113,9 @@ export async function GET(request: Request) {
             tarefas: {
               where: {
                 User: {
-                  email: session?.user?.email as string,
+                  email: {
+                    equals: email 
+                  },
                 },
               },
             },
