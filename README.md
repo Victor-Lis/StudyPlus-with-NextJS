@@ -77,6 +77,11 @@ export function Page() {
 }
 ```
 
+## Versões
+
+### v1.91 <= 
+- Implementação de novas rotas na API
+
 ## Autores
 
 ![Home](https://github.com/Victor-Lis/StudyPlus-with-NextJS/blob/master/public/project-images/StudyPlus.png)
