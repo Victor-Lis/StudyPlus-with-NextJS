@@ -11,6 +11,13 @@ Passou por 3 versões:
 - [React no Front-End](https://github.com/Victor-Lis/StudyPlus-Front-End) e [Prisma Schema no Back-End](https://github.com/Victor-Lis/StudyPlus-Back-End)
 - E a atual, usando apenas NextJS e Prisma. A grande vantagem dessa versão é que as anteriores trabalhavam com armazenamento local e não tinham separações por user, a atual trabalha com um banco em nuvem e contém sistema de users, sendo assim pode ser acessada de qualquer lugar por qualquer pessoa!
 
+## Techs
+<div align="center">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" width="40px" height="40px" alt="React">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/nextjs/nextjs-original.svg" width="40px" height="40px" alt="Next">
+  <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original.svg" width="40px" height="40px" alt="PostgreSQL">
+</div>
+
 ## Aprendizados
 - Trabalhar com TS/TSX;
 - Trabalhar com NextJS;
